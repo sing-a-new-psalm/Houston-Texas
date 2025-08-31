@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing A New Psalm - Houston's New Christian Music Streaming Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6baf;
+            --secondary: #8e44ad;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.5);
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .mission {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .mission-content h2 {
+            margin-bottom: 30px;
+        }
+        
+        .vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .vision-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .vision-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .cta {
+            text-align: center;
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .keyword-highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .music-art {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .music-art div {
+            width: 150px;
+            height: 150px;
+            margin: 0 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-music"></i> Sing A New Psalm
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#listen">Listen</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Discover New <span class="keyword-highlight">Christian Music</span> in <span class="keyword-highlight">Houston, Texas</span></h1>
+            <p>Experience fresh Christian music never before heard on the radio, with multiple genres to satisfy every listener across <span class="keyword-highlight">Houston, Texas</span> and beyond!</p>
+            <a href="https://www.singanewpsalm.church" class="btn">Listen Now</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Music Art Section -->
+    <div class="container music-art">
+        <div><i class="fas cross"></i>🎵</div>
+        <div><i class="fas bible"></i>✝️</div>
+        <div><i class="fas music-note"></i>🎶</div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="container section" id="about">
+        <h2 class="section-title">Why Choose Sing A New Psalm</h2>
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-music"></i>
+                <h3>Multiple Genres</h3>
+                <p>From gospel to contemporary, worship to Christian rap - we have it all for the <span class="keyword-highlight">Houston, Texas</span> community!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headphones"></i>
+                <h3>Exclusive Content</h3>
+                <p>Discover new Christian music never before heard on radio stations in <span class="keyword-highlight">Houston, Texas</span> or anywhere else!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-download"></i>
+                <h3>Free Downloads</h3>
+                <p>Download your favorite tracks for free and enjoy our Christian music anywhere, anytime!</p>
+            </div>
+        </div>
+        
+        <!-- Listen Now Buttons -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="https://www.singanewpsalm.church" class="btn">Listen Now</a>
+            <a href="https://www.singanewpsalm.church" class="btn">Listen Now</a>
+            <a href="https://www.singanewpsalm.church" class="btn">Listen Now</a>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container mission-content">
+            <h2 class="section-title">Our Mission</h2>
+            <p>Our mission is to bring Christian music to every corner of the world, in every language and every genre. We believe that music is a universal language that transcends cultural barriers and speaks directly to the heart.</p>
+            <p>Through this platform, we are creating a diverse collection of Christian music spanning from traditional hymns to contemporary rap, from gospel to electronic dance music, ensuring that everyone can find a way to connect with God through the music that speaks to their soul.</p>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="container section">
+        <h2 class="section-title">Our Vision</h2>
+        <div class="vision">
+            <div class="vision-card">
+                <h3>24/7 Online Radio</h3>
+                <p>We envision launching a 24/7 online Christian radio station that will broadcast uplifting music, sermons, and inspirational content around the clock. This radio station will serve as a beacon of hope and faith, reaching listeners worldwide with messages of love, redemption, and spiritual growth.</p>
+            </div>
+            <div class="vision-card">
+                <h3>24/7 Praise Rooms Initiative</h3>
+                <p>Our vision extends beyond digital platforms. We are working to establish physical 24/7 Praise Rooms across America, starting with our inaugural location in Oklahoma City, Oklahoma. These sacred spaces will be open around the clock for prayer, worship, and spiritual reflection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta" id="listen">
+        <div class="container">
+            <h2>Start Listening Today</h2>
+            <p>Join our growing community of believers in <span class="keyword-highlight">Houston, Texas</span> who are experiencing the power of new Christian music.</p>
+            <a href="https://www.singanewpsalm.church" class="btn">Free Music & Downloads</a>
+            
+            <div class="social-icons">
+                <a href="https://www.facebook.com/SingANewPsalm/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@singanewpsalm" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@sing_a_new_psalm" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <p>© 2025 Sing A New Psalm - Bringing new Christian music to <span class="keyword-highlight">Houston, Texas</span> and the world</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript to handle smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add keyword counters (for demonstration only)
+        document.addEventListener('DOMContentLoaded', function() {
+            const christianMusicCount = (document.body.textContent.match(/Christian Music/gi) || []).length;
+            const houstonTexasCount = (document.body.textContent.match(/Houston, Texas/gi) || []).length;
+            
+            console.log(`Christian Music mentioned: ${christianMusicCount} times`);
+            console.log(`Houston, Texas mentioned: ${houstonTexasCount} times`);
+        });
+    </script>
+</body>
+</html>
